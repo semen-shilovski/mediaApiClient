@@ -29,6 +29,32 @@ class Poster(BaseModel):
     resizeable: Optional[bool] = None
 
 
+class SerieMeta(BaseModel):
+    id: Optional[str] = None
+    title: Optional[str] = None
+    originalTitle: Optional[str] = None
+    description: Optional[str] = None
+    number: Optional[int] = None
+    duration: Optional[int] = None
+
+
+class FilmMeta(BaseModel):
+    id: Optional[str] = None
+    title: Optional[str] = None
+    originalTitle: Optional[str] = None
+    description: Optional[str] = None
+    duration: Optional[int] = None
+
+
+class SeasonMeta(BaseModel):
+    id: Optional[str] = None
+    title: Optional[str] = None
+    originalTitle: Optional[str] = None
+    description: Optional[str] = None
+    number: Optional[int] = None
+    episodes: Optional[List[SerieMeta]] = None
+
+
 class ContentMeta(BaseModel):
     id: Optional[str] = None
     title: Optional[str] = None
@@ -45,6 +71,14 @@ class ContentMeta(BaseModel):
     studioList: Optional[List[Studio]] = None
     horizontalPoster: Optional[Poster] = None
     verticalPoster: Optional[Poster] = None
+
+
+class FilmFullMeta(ContentMeta):
+    episode: FilmMeta
+
+
+class SerialFullMeta(ContentMeta):
+    seasons: List[SeasonMeta]
 
 
 T = TypeVar('T')

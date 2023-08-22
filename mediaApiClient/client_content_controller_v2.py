@@ -1,8 +1,9 @@
 from datetime import date
+from typing import Union
 
 import requests
 
-from mediaApiClient.content_meta_models import ContentMeta, PageWithElements
+from mediaApiClient.content_meta_models import ContentMeta, PageWithElements, FilmFullMeta, SerialFullMeta
 
 
 class ClientContentControllerV2:
@@ -44,6 +45,6 @@ class ClientContentControllerV2:
         content_response = requests.post(url, data=payload, headers=headers, params=params)
 
         if content_response.status_code == 200:
-            return PageWithElements[ContentMeta](**content_response.json())
+            return PageWithElements[Union[SerialFullMeta, FilmFullMeta]](**content_response.json())
         else:
             raise Exception(f"Request failed with status code: {content_response.status_code}")
