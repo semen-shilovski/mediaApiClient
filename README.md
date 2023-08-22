@@ -3,7 +3,7 @@ It is an opensource library for working with api ContentApiGate, written in pyth
 
 ## Installation
 
-Install the current version with [PyPI](https://pypi.org/):
+Install the current version mediaApiClient with [PyPI](https://pypi.org/project/mediaApiClient/):
 
 ```bash
 pip install mediaApiClient
