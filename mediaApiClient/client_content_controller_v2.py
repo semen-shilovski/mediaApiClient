@@ -24,7 +24,13 @@ class ClientContentControllerV2:
         content_response = requests.get(url, params=params, headers=headers)
 
         if content_response.status_code == 200:
-            return ContentMeta(**content_response.json())
+            content_instance = None
+            content_response_json = content_response.json()
+            if content_response_json['type'] == 'serial':
+                content_instance = SerialFullMeta(**content_response_json)
+            elif content_response_json['type'] == 'film':
+                content_instance = FilmFullMeta(**content_response_json)
+            return content_instance
         else:
             raise Exception(f"Request failed with status code: {content_response.status_code}")
 
