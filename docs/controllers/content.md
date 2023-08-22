@@ -58,8 +58,6 @@ size (have default value, may be **None**)  : size of page (default 10)
 **Example of response**
 
 ```python
-T = TypeVar('T')
-
 class PageWithElements(BaseModel, Generic[T]):
     number: Optional[int] = Field(..., alias="number")
     size: Optional[int] = Field(..., alias="size")
@@ -70,7 +68,34 @@ class PageWithElements(BaseModel, Generic[T]):
     next: Optional[bool] = Field(..., alias="next")
     previous: Optional[bool] = Field(..., alias="previous")
     elements: Optional[List[T]] = Field(..., alias="elements")
+    
+class ContentMeta(BaseModel):
+    id: Optional[str] = None
+    title: Optional[str] = None
+    originalTitle: Optional[str] = None
+    description: Optional[str] = None
+    type: Optional[str] = None
+    provider: Optional[str] = None
+    releaseDate: Optional[int] = None
+    ageRating: Optional[int] = None
+    slug: Optional[str] = None
+    ratingList: Optional[List[Rating]] = None
+    genreList: Optional[List[Genre]] = None
+    countryList: Optional[List[Country]] = None
+    studioList: Optional[List[Studio]] = None
+    horizontalPoster: Optional[Poster] = None
+    verticalPoster: Optional[Poster] = None
+
+class FilmFullMeta(ContentMeta):
+    episode: FilmMeta
+
+
+class SerialFullMeta(ContentMeta):
+    seasons: List[SeasonMeta]
 ```
+
+
+Serial
 
 ```json
 {
@@ -139,6 +164,66 @@ class PageWithElements(BaseModel, Generic[T]):
                     ]
                 }
             ]
+        }
+    ]
+}
+```
+
+Film
+```json
+{
+    "number": 0,
+    "size": 1,
+    "totalPages": 1100,
+    "totalElements": 1100,
+    "first": true,
+    "last": false,
+    "next": true,
+    "previous": false,
+    "elements": [
+        {
+            "id": "95e8fd8d19804939890d4e4d00aa393f",
+            "title": "Гражданин Икс",
+            "originalTitle": "Citizen X",
+            "description": "«Бешеный зверь», «Ростовский потрошитель», «Маньяк из лесополосы», «Гражданин Х». Все эти прозвища принадлежат одному из самых беспощадных и одновременно тихих, незаметных маньяков в истории человечества - Андрею Чикатило. Захватывающий психологический триллер снят по книге Роберта Каллена «Отдел убийств» и рассказывает о многолетних поисках серийного убийцы. Удалось ли авторам постичь «феномен Чикатило»?",
+            "type": "film",
+            "provider": "amediateka_local",
+            "releaseDate": 2016,
+            "ageRating": 18,
+            "slug": "",
+            "ratingList": [],
+            "genreList": [
+                {
+                    "id": 21,
+                    "name": "Триллеры"
+                },
+                {
+                    "id": 24,
+                    "name": "Фильмы HBO"
+                }
+            ],
+            "countryList": [
+                {
+                    "id": 2,
+                    "name": "США"
+                }
+            ],
+            "studioList": null,
+            "horizontalPoster": {
+                "url": "https://i.amediateka.tech/resize/1600x900/_stor_/cms/content-contentasset/a/2f/0bec444b7054f76b4e4e8e14accbaa2f-164024-8d644553baf14dd9a21ea9b693631d49.jpg",
+                "resizeable": false
+            },
+            "verticalPoster": {
+                "url": "https://i.amediateka.tech/resize/200x300/_stor_/cms/content-contentasset/a/2f/0bec444b7054f76b4e4e8e14accbaa2f-164024-8d644553baf14dd9a21ea9b693631d49.jpg",
+                "resizeable": false
+            },
+            "episode": {
+                "id": "09ace44d2ccb41cab30be689e2e4c5f7",
+                "title": "Гражданин Икс",
+                "originalTitle": "Citizen X",
+                "description": "«Бешеный зверь», «Ростовский потрошитель», «Маньяк из лесополосы», «Гражданин Х». Все эти прозвища принадлежат одному из самых беспощадных и одновременно тихих, незаметных маньяков в истории человечества - Андрею Чикатило. Захватывающий психологический триллер снят по книге Роберта Каллена «Отдел убийств» и рассказывает о многолетних поисках серийного убийцы. Удалось ли авторам постичь «феномен Чикатило»?",
+                "duration": 6535
+            }
         }
     ]
 }
