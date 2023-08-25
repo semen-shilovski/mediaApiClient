@@ -14,6 +14,9 @@ pip install mediaApiClient
 * Controllers
   * [Working with Content Controller](docs/controllers/content.md)
   * [Working with Stream Controller](docs/controllers/stream.md)
+  * [Working with Service Controller](docs/controllers/service.md)
+  * [Working with Account Controller](docs/controllers/account.md)
+  * [Working with Compilation Controller](docs/controllers/compilation.md)
 
 ## License
 
