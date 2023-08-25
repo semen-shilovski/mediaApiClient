@@ -81,7 +81,6 @@ class ClientAccountControllerV1:
         response = requests.patch(url, headers=headers)
 
         if response.status_code != 200:
-            print(response.text)
             raise Exception(f"Request failed with status code: {response.status_code}")
 
     def disable_service_for_account(self, account_id, service_id):
