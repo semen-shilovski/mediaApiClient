@@ -12,11 +12,11 @@ pip install mediaApiClient
 ## Documents
 
 * Controllers
-  * [Working with Content Controller](docs/controllers/content.md)
-  * [Working with Stream Controller](docs/controllers/stream.md)
-  * [Working with Service Controller](docs/controllers/service.md)
-  * [Working with Account Controller](docs/controllers/account.md)
-  * [Working with Compilation Controller](docs/controllers/compilation.md)
+  * [Working with Content Controller](https://github.com/semen-shilovski/mediaApiClient/blob/main/docs/controllers/content.md)
+  * [Working with Stream Controller](https://github.com/semen-shilovski/mediaApiClient/blob/main/docs/controllers/stream.md)
+  * [Working with Service Controller](https://github.com/semen-shilovski/mediaApiClient/blob/main/docs/controllers/service.md)
+  * [Working with Account Controller](https://github.com/semen-shilovski/mediaApiClient/blob/main/docs/controllers/account.md)
+  * [Working with Compilation Controller](https://github.com/semen-shilovski/mediaApiClient/blob/main/docs/controllers/compilation.md)
 
 ## License
 
