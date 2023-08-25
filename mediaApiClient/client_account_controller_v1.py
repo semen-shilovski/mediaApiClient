@@ -42,7 +42,7 @@ class ClientAccountControllerV1:
         else:
             raise Exception(f"Request failed with status code: {response.status_code}")
 
-    def create_account_by_request(self, account_to_create):
+    def create_account_by_request(self, account_to_create: AccountToCreate):
         payload = account_to_create.model_dump_json()
         url = f"{self.base_url}{self.ACCOUNT_URL}"
 

@@ -4,6 +4,7 @@ from typing import Union
 import requests
 
 from mediaApiClient.content_meta_models import ContentMeta, PageWithElements, FilmFullMeta, SerialFullMeta
+from mediaApiClient.content_reuest_models import ContentFilter
 
 
 class ClientContentControllerV2:
@@ -34,7 +35,7 @@ class ClientContentControllerV2:
         else:
             raise Exception(f"Request failed with status code: {content_response.status_code}")
 
-    def get_content_by_filter(self, filter_request, number=0, size=10):
+    def get_content_by_filter(self, filter_request: ContentFilter, number=0, size=10):
         payload = filter_request.model_dump_json()
         url = f"{self.base_url}/api/v2/contents"
 
