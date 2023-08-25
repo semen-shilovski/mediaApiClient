@@ -5,7 +5,7 @@ import requests
 from mediaApiClient.services_models import LightWeightService
 
 
-class ClientServiceControllerV2:
+class ClientServiceControllerV1:
     def __init__(self, base_url, auth_token):
         self.base_url = base_url
         self.auth_token = auth_token
